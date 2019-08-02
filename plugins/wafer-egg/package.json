@@ -1,0 +1,9 @@
+{
+  "name": "wafer-egg",
+  "eggPlugin": {
+    "name": "wafer",
+    "dependencies": [],
+    "optionalDependencies": [],
+    "env": [ "local", "test", "unittest", "prod" ]
+  }
+}

@@ -1,0 +1,18 @@
+1、需要用户登录的入口，检查skey是否为空  （测试用例）
+2、检查用户权限设置
+  如果无skey才做检查，否则跳过   （测试用例：1、无skey, setting未设置过， 2，无skey，setting拒绝； 3，无skey，setting同意）
+	wx.getSetting({
+	  success(res) {
+	    console.log(res.authSetting)
+	    // res.authSetting = {
+	    //   "scope.userInfo": true,
+	    //   "scope.userLocation": true
+	    // }
+	  }
+	})
+  wx.getSetting结果用户未开启权限，	wx.openSetting(需要放到按钮响应逻辑里)，打开设置失败，提示需要在右上角打开设置，开启权限
+3、用户有skey，跳转到目标页面 （测试用例：1、skey无效, setting未设置过， 2，skey无效，setting拒绝； 3，skey无效，setting同意）
+4、目标页面，网络请求接口，返回skey登录态无效，wx.getSetting结果用户未开启权限，提示用户未开启权限，需要在右上角打开设置，开启权限
+5、目标页面，网络请求接口，返回skey登录态无效，wx.getSetting结果用户已经开启权限，提示用户请检查网络状态
+
+
