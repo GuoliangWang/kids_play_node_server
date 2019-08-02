@@ -26,7 +26,7 @@ class DreamController extends Controller {
     const { video_id } = ctx.request.body;
     const video = await ctx.model.Video.findByPk(video_id);
     if (!video) {
-      ctx.body = `video id:${id} not exist`;
+      ctx.body = `video id:${video_id} not exist`;
       ctx.status = 400;
       return;
     }
