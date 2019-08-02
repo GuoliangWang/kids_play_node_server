@@ -1,13 +1,6 @@
 'use strict';
 
 const Controller = require('egg').Controller;
-const iconst = require('../const');
-
-function toInt(str) {
-  if (typeof str === 'number') return str;
-  if (!str) return str;
-  return parseInt(str, 10) || 0;
-}
 
 class DreamController extends Controller {
 
@@ -30,8 +23,6 @@ class DreamController extends Controller {
       ctx.status = 422;
       return;
     }
-    const Sequelize = this.app.Sequelize;
-    const Op = Sequelize.Op;
     const { video_id } = ctx.request.body;
     const video = await ctx.model.Video.findByPk(video_id);
     if (!video) {

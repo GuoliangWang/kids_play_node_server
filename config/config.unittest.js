@@ -5,7 +5,7 @@
 /**
  * @param {Egg.EggAppInfo} appInfo app info
  */
-const env = process.env;
+// const env = process.env;
 console.log('test');
 module.exports = (/* appInfo*/) => {
   /**

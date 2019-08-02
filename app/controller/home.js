@@ -9,7 +9,7 @@ class HomeController extends Controller {
     const Sequelize = this.app.Sequelize;
     const Op = Sequelize.Op;
     let { before_video_id: beforeVideoId } = ctx.query;
-    beforeVideoId && (beforeMsgId = parseInt(beforeMsgId));
+    beforeVideoId && (beforeVideoId = parseInt(beforeVideoId));
     beforeVideoId = beforeVideoId ? beforeVideoId : Number.MAX_SAFE_INTEGER;
     const query = {
       where: {

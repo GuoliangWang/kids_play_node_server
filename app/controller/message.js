@@ -175,10 +175,10 @@ class MessageController extends Controller {
 
   async replyHelpDream() {
     const ctx = this.ctx;
-    let userInfo;
+    // let userInfo;
     if (ctx.state.$wxInfo.loginState === 1) {
       // loginState 为 1，登录态校验成功
-      userInfo = ctx.state.$wxInfo.userinfo;
+      // userInfo = ctx.state.$wxInfo.userinfo;
     } else {
       ctx.state.code = -1;
       return;

@@ -82,7 +82,7 @@ class MessageService extends Service {
           authorized = true;
           auth = authrity.auth;
         }
-      } else if (item.privacy == iconst.privacy.self) {
+      } else if (item.privacy === iconst.privacy.self) {
         authorized = false;
       }
       authorized = authorized ? 1 : 0;

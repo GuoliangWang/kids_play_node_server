@@ -531,7 +531,7 @@ class VideoController extends Controller {
       }
     }
     const list = await ctx.model.Video.findAll(query);
-    const { respList, users } = await ctx.service.video.setReferenceForVideos(list, userInfo);
+    const { respList } = await ctx.service.video.setReferenceForVideos(list, userInfo);
     ctx.state.data = { video_list: respList };
   }
 
