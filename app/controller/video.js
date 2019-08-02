@@ -66,7 +66,7 @@ class VideoController extends Controller {
       },
     };
     const min_video_id = await ctx.model.Video.min('id', queryMinId);
-    const { respList, users } = await this.setReferenceForVideos(list, userInfo);
+    const { respList, users } = await ctx.service.video.setReferenceForVideos(list, userInfo);
     ctx.state.data = { list: respList, min_video_id, users };
   }
 
