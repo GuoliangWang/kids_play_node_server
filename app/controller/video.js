@@ -121,7 +121,9 @@ class VideoController extends Controller {
     const videoId = ctx.query.id;
     const userId = ctx.query.user_id;
     let userInfo 
-    userId && (userInfo = await this.app.wafer.AuthDbService.getUserInfoByOpenId(userId))
+    userId && (userInfo = await this.app.wafer.AuthDbService.getUserInfoByOpenId(userId));
+    userInfo && (userInfo = JSON.parse(userInfo.user_info));
+    // console.log(userInfo)
     const Sequelize = this.app.Sequelize;
     const Op = Sequelize.Op;
     const query = {
@@ -513,6 +515,7 @@ class VideoController extends Controller {
     const { video_ids, user_id } = ctx.request.body;
     let userInfo;
     user_id && (userInfo = await this.app.wafer.AuthDbService.getUserInfoByOpenId(user_id));
+    userInfo && (userInfo = JSON.parse(userInfo.user_info));
     const videoIdArray = video_ids.split(',');
     const resVideoIdArray = [];
     for(let i = 0; i < videoIdArray.length; i++) {
