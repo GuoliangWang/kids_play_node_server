@@ -17,7 +17,8 @@ class MessageService extends Service {
   promiseForReadVideoSts(video) {
     return new Promise(resolve => {
       // const openId = video.create_userid;
-      const host = 'https://www.narniaclub.com';
+      // const host = 'https://www.narniaclub.com';
+      const host = 'https://kidsmedia.qutou88.com';
       const videoPath = video.url.substring(host.length + 1);
       const coverPath = video.cover.substring(host.length + 1);
       console.log('coverPath:', coverPath);
