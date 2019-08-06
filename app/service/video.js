@@ -16,11 +16,8 @@ class MessageService extends Service {
 
   promiseForReadVideoSts(video) {
     return new Promise(resolve => {
-      // const openId = video.create_userid;
-      // const host = 'https://www.narniaclub.com';
-      const host = 'https://kidsmedia.qutou88.com';
-      const videoPath = video.url.substring(host.length + 1);
-      const coverPath = video.cover.substring(host.length + 1);
+      const videoPath = video.url;
+      const coverPath = video.cover;
       console.log('coverPath:', coverPath);
       const conf = this.app.config.aliOss;
       // let policy = JSON.stringify(conf.bucketReadPolicy)
@@ -45,8 +42,8 @@ class MessageService extends Service {
         });
         let videoUrl = oss.signatureUrl(videoPath, { expires: conf.TokenExpireTime });
         let coverUrl = oss.signatureUrl(coverPath, { expires: conf.TokenExpireTime });
-        videoUrl = videoUrl.replace(signatureHost, host);
-        coverUrl = coverUrl.replace(signatureHost, host);
+        videoUrl = videoUrl.replace(signatureHost, iconst.oss.narnia_app_cdn_host);
+        coverUrl = coverUrl.replace(signatureHost, iconst.oss.narnia_app_cdn_host);
         const res = {
           videoUrl,
           coverUrl,

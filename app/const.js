@@ -1,5 +1,10 @@
 'use strict';
 
+const oss = {
+  narnia_app_cdn_host: 'https://kidsmedia.qutou88.com',
+  narnia_app_kids_users_path: 'kids_users'
+};
+
 const applyStatus = {
   waitingApproval: 1, // 等待审核
   approved: 2, // 审核通过
@@ -56,6 +61,7 @@ const popularVideoStatus = {
 };
 
 module.exports = {
+  oss,
   applyStatus,
   privacy,
   auth,

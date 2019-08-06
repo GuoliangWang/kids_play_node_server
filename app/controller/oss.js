@@ -8,6 +8,7 @@ const { STS } = require('ali-oss');
 const crypto = require('crypto');
 const moment = require('moment');
 const uuidGenerator = require('uuid/v4');
+const iconst = require('../const')
 
 class AliOssController extends Controller {
   async sts() {
@@ -22,7 +23,7 @@ class AliOssController extends Controller {
     }
     const suffix = ctx.query.suffix || '';
     const openId = userInfo.openId;
-    const userOssFilePathPre = 'kids_users/' + openId + '/' + moment().format('YYYYMMDD') + '/';
+    const userOssFilePathPre = iconst.oss.narnia_app_kids_users_path + '/' + openId + '/' + moment().format('YYYYMMDD') + '/';
     const uuid = uuidGenerator();
     const conf = this.app.config.aliOss;
     console.log(conf);
@@ -55,8 +56,7 @@ class AliOssController extends Controller {
         policy: resPolicyBase64,
         SecurityToken: result.credentials.SecurityToken,
         Expiration: result.credentials.Expiration,
-        // cdnHost: 'https://www.narniaclub.com',
-        cdnHost: 'https://kidsmedia.qutou88.com',
+        cdnHost: iconst.oss.narnia_app_cdn_host,
         uploadHost: 'https://narnia-app.oss-cn-beijing.aliyuncs.com',
         ossFilePath: userOssFilePathPre + uuid + suffix,
       };
