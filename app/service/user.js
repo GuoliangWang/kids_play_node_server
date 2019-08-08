@@ -23,7 +23,8 @@ class UserService extends Service {
     } else {
       return false;
     }
-    return (userInfo.openId === 'olD044-zqndfwKj0Q2V5EQgbx29A');
+    // return (userInfo.openId === 'olD044-zqndfwKj0Q2V5EQgbx29A');
+    return (userInfo.openId === 'oigvn5dnab36UK89R167YSkXZtEQ');
   }
 
   async virtualAdminOpenId() {
