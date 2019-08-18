@@ -17,7 +17,7 @@ class MessageService extends Service {
   promiseForReadVideoSts(video) {
     return new Promise(resolve => {
       const videoPath = video.url;
-      const coverPath = video.cover + '?x-oss-process=image/resize,w_512'; // reduce image size
+      const coverPath = video.cover; // reduce image size
       console.log('coverPath:', coverPath);
       const conf = this.app.config.aliOss;
       // let policy = JSON.stringify(conf.bucketReadPolicy)
@@ -41,7 +41,7 @@ class MessageService extends Service {
           bucket,
         });
         let videoUrl = oss.signatureUrl(videoPath, { expires: conf.TokenExpireTime });
-        let coverUrl = oss.signatureUrl(coverPath, { expires: conf.TokenExpireTime });
+        let coverUrl = oss.signatureUrl(coverPath, { expires: conf.TokenExpireTime, 'x-oss-process': 'image/resize,w_512' });
         videoUrl = videoUrl.replace(signatureHost, iconst.oss.narnia_app_cdn_host);
         coverUrl = coverUrl.replace(signatureHost, iconst.oss.narnia_app_cdn_host);
         const res = {
