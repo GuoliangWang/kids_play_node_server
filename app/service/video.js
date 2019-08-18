@@ -41,7 +41,7 @@ class MessageService extends Service {
           bucket,
         });
         let videoUrl = oss.signatureUrl(videoPath, { expires: conf.TokenExpireTime });
-        let coverUrl = oss.signatureUrl(coverPath, { expires: conf.TokenExpireTime, 'x-oss-process': 'image/resize,w_512' });
+        let coverUrl = oss.signatureUrl(coverPath, { expires: conf.TokenExpireTime, process: 'image/resize,w_512' });
         videoUrl = videoUrl.replace(signatureHost, iconst.oss.narnia_app_cdn_host);
         coverUrl = coverUrl.replace(signatureHost, iconst.oss.narnia_app_cdn_host);
         const res = {
