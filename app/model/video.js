@@ -19,6 +19,7 @@ module.exports = app => {
     is_del: INTEGER,
     privacy: INTEGER,
     status: INTEGER, // 审核中 。。。
+    color: STRING,
   });
 
   return Video;

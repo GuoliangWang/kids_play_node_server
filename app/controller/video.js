@@ -93,12 +93,12 @@ class VideoController extends Controller {
       ctx.status = 422;
       return;
     }
-    const { title, url, cover, privacy, width, height, size, duration, dream } = ctx.request.body;
+    const { title, url, cover, privacy, width, height, size, duration, dream, color } = ctx.request.body;
     // created_at updated_at 看看是否有默认值
     const create_userid = userInfo.openId;
     const status = iconst.applyStatus.waitingApproval;
     const is_del = 0;
-    const video = await ctx.model.Video.create({ title, url, cover, privacy, width, height, size, duration, dream, create_userid, status, is_del });
+    const video = await ctx.model.Video.create({ title, url, cover, privacy, width, height, size, duration, dream, create_userid, status, is_del, color });
     const msg = await ctx.service.message.applyShowVideo(video);
     if (!msg) {
       ctx.status = 500;
