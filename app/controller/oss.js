@@ -8,7 +8,7 @@ const { STS } = require('ali-oss');
 const crypto = require('crypto');
 const moment = require('moment');
 const uuidGenerator = require('uuid/v4');
-const iconst = require('../const')
+const iconst = require('../const');
 
 class AliOssController extends Controller {
   async sts() {

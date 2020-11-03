@@ -2,7 +2,7 @@
 
 const oss = {
   narnia_app_cdn_host: 'https://kidsmedia.qutou88.com',
-  narnia_app_kids_users_path: 'kids_users'
+  narnia_app_kids_users_path: 'kids_users',
 };
 
 const applyStatus = {
@@ -27,7 +27,7 @@ const favoriteType = {
   video: 1,
 };
 
-// 【1:上传视频】【2:视频审核通过】【3:视频审核未通过】【4:视频违规被删除】【5:申请观看】【6:同意观看】 【7:拒绝观看】【8:删除视频】【9:助梦】【10:回复助梦】 
+// 【1:上传视频】【2:视频审核通过】【3:视频审核未通过】【4:视频违规被删除】【5:申请观看】【6:同意观看】 【7:拒绝观看】【8:删除视频】【9:助梦】【10:回复助梦】
 const msgType = {
   applyShowVideo: 1,
   applyShowVideoApproved: 2,

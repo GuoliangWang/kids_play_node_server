@@ -185,7 +185,7 @@ class MessageController extends Controller {
     }
     const rules = {
       msg_id: { type: 'int' },
-      content: { type: 'string'}
+      content: { type: 'string' },
     };
     console.log('ctx.body:', ctx.request.body);
     const errors = this.app.validator.validate(rules, ctx.request.body);
@@ -204,10 +204,10 @@ class MessageController extends Controller {
       },
     };
     const msg = await ctx.model.Message.findOne(query);
-    if(!msg) {
+    if (!msg) {
       ctx.status = 400;
       ctx.body = `msg_id[${msg_id}] not found`;
-      return
+      return;
     }
     // 创建一条，发给作者的消息
     const newMsg = await ctx.service.message.replyHelpDream(msg, content);
@@ -217,7 +217,7 @@ class MessageController extends Controller {
       return;
     }
     ctx.state.data = 'operated';
-    
+
   }
 
 }

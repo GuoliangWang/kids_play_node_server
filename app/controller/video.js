@@ -120,7 +120,7 @@ class VideoController extends Controller {
     }
     const videoId = ctx.query.id;
     const userId = ctx.query.user_id;
-    let userInfo 
+    let userInfo;
     userId && (userInfo = await this.app.wafer.AuthDbService.getUserInfoByOpenId(userId));
     userInfo && (userInfo = JSON.parse(userInfo.user_info));
     // console.log(userInfo)
@@ -518,21 +518,21 @@ class VideoController extends Controller {
     userInfo && (userInfo = JSON.parse(userInfo.user_info));
     const videoIdArray = video_ids.split(',');
     const resVideoIdArray = [];
-    for(let i = 0; i < videoIdArray.length; i++) {
-      let item = videoIdArray[i]
+    for (let i = 0; i < videoIdArray.length; i++) {
+      const item = videoIdArray[i];
       const urlKey = iconst.redisKey.stsVideoUrlPre + item;
-      let redisUrl = await this.app.redis.get(urlKey);
-      if(!redisUrl) {
-        resVideoIdArray.push(Number(item))
+      const redisUrl = await this.app.redis.get(urlKey);
+      if (!redisUrl) {
+        resVideoIdArray.push(Number(item));
       }
     }
     const query = {
       where: {
         id: {
           [Op.in]: resVideoIdArray,
-        }
-      }
-    }
+        },
+      },
+    };
     const list = await ctx.model.Video.findAll(query);
     const { respList } = await ctx.service.video.setReferenceForVideos(list, userInfo);
     ctx.state.data = { video_list: respList };

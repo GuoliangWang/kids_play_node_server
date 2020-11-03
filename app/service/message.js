@@ -219,7 +219,7 @@ class MessageService extends Service {
 
   async replyHelpDream(msg, content) {
     const ctx = this.ctx;
-    const replyMsg = await ctx.model.Message.create({ from_userid: msg.to_userid, to_userid: msg.from_userid, type: iconst.msgType.replyHelpDream, is_del: 0, content: JSON.stringify({content}), ref_id: msg.ref_id, status: iconst.msgStatus.normal });
+    const replyMsg = await ctx.model.Message.create({ from_userid: msg.to_userid, to_userid: msg.from_userid, type: iconst.msgType.replyHelpDream, is_del: 0, content: JSON.stringify({ content }), ref_id: msg.ref_id, status: iconst.msgStatus.normal });
     return replyMsg;
   }
 

@@ -38,7 +38,7 @@ module.exports = app => {
   router.get(basePath + '/message/apply_watch_video_msg_list', waferInst.auth.validationMiddleware, controller.message.applyWathVideoMsgList);
   router.get(basePath + '/message/received_list', waferInst.auth.validationMiddleware, controller.message.receivedList);
   router.post(basePath + '/message/reply_help_dream', waferInst.auth.validationMiddleware, controller.message.replyHelpDream);
-  
+
   router.post(basePath + '/auth/apply_watch', waferInst.auth.validationMiddleware, controller.auth.applyWatch);
   router.post(basePath + '/auth/approve_watch', waferInst.auth.validationMiddleware, controller.auth.approveWatch);
   router.post(basePath + '/admin/video/approve_show', waferInst.auth.validationMiddleware, controller.video.approveShow);

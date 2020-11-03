@@ -20,11 +20,11 @@ module.exports = appInfo => {
   config.middleware = [ 'response', 'weixinbodyparser' ];
 
   config.cluster = {
-      listen: {
-        path: '',
-        port: 7002,
-        hostname: '0.0.0.0',
-      }
+    listen: {
+      path: '',
+      port: 7002,
+      hostname: '0.0.0.0',
+    },
   };
   // add your user config here
   const userConfig = {

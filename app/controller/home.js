@@ -47,9 +47,9 @@ class HomeController extends Controller {
       },
     };
     const min_video_id = await ctx.model.Video.min('id', queryMinId);
-    ctx.state.data = { video_list: respList, users, min_video_id};
+    ctx.state.data = { video_list: respList, users, min_video_id };
   }
-  
+
 }
 
 module.exports = HomeController;
